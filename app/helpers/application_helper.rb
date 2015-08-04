@@ -1,4 +1,6 @@
 module ApplicationHelper
 
-	 my_name = "Bryan" 
+	 def my_name
+	 	"Bryan" 
+	 end
 end
