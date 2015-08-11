@@ -54,5 +54,7 @@ group :development, :test do
   gem 'bootstrap-sass'
 
   gem "pry-rails"
+
+  gem 'devise'
 end
 
