@@ -1,4 +1,11 @@
 class PostsController < ApplicationController
+  before_action :flash_attack
+
+  def flash_attack
+    flash[:notice]  = "Loading page"
+  end
+
+
   def index
   	@posts = Post.all
   end

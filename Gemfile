@@ -56,5 +56,7 @@ group :development, :test do
   gem "pry-rails"
 
   gem 'devise'
+
+  gem 'figaro', '1.0'
 end
 
