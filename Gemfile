@@ -58,5 +58,7 @@ group :development, :test do
   gem 'devise'
 
   gem 'figaro', '1.0'
+
+  gem 'pundit'
 end
 

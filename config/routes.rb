@@ -2,9 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts
   resources :advertisements, only: [:index, :show]
   resources :question
+
+  resources :topics do
+  	resources :posts, expect:[:index]
+  end
+ 
 
   get 'about' => 'welcome#about'
 
