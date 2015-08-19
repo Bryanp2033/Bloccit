@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
+ before_action :flash_attack
 
+ def flash_attack
+  flash[:attack] = "Loading page"
+end
 include Pundit
 
   

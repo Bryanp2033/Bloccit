@@ -7,6 +7,7 @@ gem 'rails', '4.2.1'
 group :production do
    gem 'pg'
    gem 'rails_12factor'
+   gem 'devise'
  end
  
  group :development do
@@ -55,7 +56,6 @@ group :development, :test do
 
   gem "pry-rails"
 
-  gem 'devise'
 
   gem 'figaro', '1.0'
 
