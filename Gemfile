@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
+
+ gem 'devise'
 group :production do
    gem 'pg'
    gem 'rails_12factor'
-   gem 'devise'
+  
  end
  
  group :development do
