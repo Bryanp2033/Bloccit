@@ -6,7 +6,7 @@
 	 <div class="media">
 	 	<div class="media-body">
 	 		<h4 class="media-heading">
-	 			<%= link_to post.title, post %>
+	 			<%= link_to (markdown_to_html post.title), post %>
 	 		</h4>
 	 		<small>
 	 			sumbitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>

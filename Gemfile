@@ -2,8 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
+gem 'redcarpet'
 
  gem 'devise'
+
+ gem 'carrierwave'
+
+ gem 'mini_magick'
+
+ gem 'fog'
 group :production do
    gem 'pg'
    gem 'rails_12factor'
