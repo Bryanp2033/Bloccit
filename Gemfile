@@ -18,6 +18,7 @@ group :production do
  end
  
  group :development do
+
    gem 'sqlite3'
  end
 
@@ -35,6 +36,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
  gem 'bootstrap-sass'
+
+ gem 'binding_of_caller'
+
+ gem 'better_errors'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

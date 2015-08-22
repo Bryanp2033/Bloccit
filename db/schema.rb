@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150821160040) do
     t.integer  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "answers", force: :cascade do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150821160040) do
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "comments"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"

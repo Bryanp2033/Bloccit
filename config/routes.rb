@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :question
 
   resources :topics do
-  	resources :posts, expect:[:index]
+  	resources :posts, expect:[:index]do
+    resources :comments, only: [:create]
+    end
   end
  
 
