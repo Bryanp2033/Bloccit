@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 
-  skip_before_action :flash_attack, except:[:index, :new]
 
 
   def index

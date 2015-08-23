@@ -1,12 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
- before_action :flash_attack
-
- def flash_attack
-  flash[:attack] = "Loading"
-end
-
+ 
 
   
   # Prevent CSRF attacks by raising an exception.

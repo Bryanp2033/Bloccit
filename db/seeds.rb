@@ -67,9 +67,11 @@ require 'faker'
      body: Faker::Lorem.paragraph
    )
  end
+ comments = Comment.all
 
-15.times do Topic.create!(
-    name:    Faker::Lorem.sentence
+15.times do
+ Topic.create!(
+    name:Faker::Lorem.sentence
     description: Faker::Lorem.paragraph
     )
  end

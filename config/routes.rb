@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users, only: [:update]
+  resources :users, only: [:update, :show, :index]
 
   resources :advertisements, only: [:index, :show]
   resources :question
@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   get 'contact' => 'welcome#contact'
   
-  get "welcome/faq"
+  get "faq" => 'welcome#faq'
+
+
 
   
   root to: 'welcome#index'
