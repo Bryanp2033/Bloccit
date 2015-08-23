@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   resources :advertisements, only: [:index, :show]
   resources :question
 
-  resources :topics do
-  	resources :posts, expect:[:index]do
-    resources :comments, only: [:create]
-    end
-  end
+     resources :topics do
+     resources :posts, except: [:index]
+   end
  
+   resources :posts, only: [] do
+     resources :comments, only: [:create, :destroy]
+   end
 
   get 'about' => 'welcome#about'
 
