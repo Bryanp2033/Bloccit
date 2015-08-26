@@ -1,4 +1,4 @@
-<% form_for [topic, post] do |f| %>
+<%= form_for [topic, post] do |f| %>
 		<% if post.errors.any? %>
 		<div class="alert alert-danger">
 			<h4> There are <%= pluralize(post.errors.count, "error") %>.</h4>
@@ -18,6 +18,6 @@
 		<%= f.text_field :body, rows: 8, class: 'form-control', placeholder: "Enter body" %>
 		<%end %>
 		<div class="form-group">
-		<%= f.sumbit "Save", class: 'btn btn-success' %>
+		<%= f.submit "Save", class: 'btn btn-success' %>
 	</div>
 	<% end %>
