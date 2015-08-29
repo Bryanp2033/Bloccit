@@ -25,7 +25,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-   process :resize_to_fill => [200, 300]
+   process :resize_to_fill => [20, 30]
   #
   # def scale(width, height)
   #   # do something
@@ -52,8 +52,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+   def filename
+     "something.jpg" if original_filename
+   end
 
 end
