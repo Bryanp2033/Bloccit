@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Vote do 
+include TestFactories
+Devise::TestHelpers
 
   describe "validations" do
     describe "value validation" do
@@ -16,4 +18,13 @@ describe Vote do
       end
     end
   end
+
+
+   describe 'after_save' do
+     it "calls `Post#update_rank` after save" do
+       vote = Vote.new(value: 1, post: post)
+       expect(post).to receive(:update_rank)
+       vote.save
+     end
+   end
 end
