@@ -1,3 +1,7 @@
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,9 +16,7 @@
  *
  *= require_tree .
  *= require_self
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+
 
  .user-info {
    margin-top: 9px;
@@ -29,4 +31,7 @@
    text-align: center;
  }
 
+.favorite{
+	margin-top: 20px;
+}
  */
