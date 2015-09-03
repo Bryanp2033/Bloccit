@@ -6,7 +6,7 @@ module TestFactories
      		body: 'Post bodies must be pretty long',
      		topic: Topic.create(name: 'Topic name'),
      		user: authenticated_user
-     	}.merge)options
+     	}.merge(options)
 
  		Post.create(post_options)
      end
