@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+gem 'puma', group: :production
+gem 'thin', group: :development
+
 gem 'newrelic_rpm'
 
 gem 'rails', '4.2.1'
