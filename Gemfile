@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem 'newrelic_rpm'
+
 gem 'rails', '4.2.1'
 
 gem 'redcarpet'
