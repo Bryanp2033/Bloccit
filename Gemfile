@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'puma', group: :production
 gem 'thin', group: :development
 
+gem 'factory_girl_rails', '~> 4.0'
+
 gem 'newrelic_rpm'
 
 gem 'rails', '4.2.1'
