@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 	belongs_to :topic, dependent: :destroy
 	has_many :votes, dependent: :destroy
    has_many :favorites, dependent: :destroy
-
+   has_one :summary
 
 default_scope {order('created_at DESC')}
  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
