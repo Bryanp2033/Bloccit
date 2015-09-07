@@ -2,9 +2,12 @@ class CommentsController < ApplicationController
 	def create
 		
 		@post = Post.find(params[:post_id])
-
-		@comment = current_user.comments.build(comments_params)
+		@comments = @posts.comments
+		@comment = Comment.new(comments_params)
+		@comment.user = current_user
 		@comment.post = @post
+		@new_comment = Comment.new
+		
 		authorize @comment
 
 		if @comment.save
@@ -13,7 +16,10 @@ class CommentsController < ApplicationController
 			flash[:error] = "Comment failed to save."
 		end
 
-	   redirect_to [@post.topic, @post]
+	   respond_to do |format|
+	   	format.html
+	   	format.js
+	   end
 	end
 	
 
