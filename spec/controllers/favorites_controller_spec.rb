@@ -5,9 +5,16 @@ describe FavoritesController do
   include Devise::TestHelpers
 
   before do 
-    @post = create(:post)
-    @user = create(:user)
+    @post = Post.create!(:post)
+    @user = Post.create!(:user)
     sign_in @user
+  end
+
+
+  describe '#sign_in' do
+    it 'sign_in the user' do
+      expect( @user.current_path).to eq (true)
+    end
   end
 
   describe '#create' do
