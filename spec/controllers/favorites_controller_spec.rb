@@ -5,8 +5,9 @@ describe FavoritesController do
   include Devise::TestHelpers
 
   before do 
-    @post = Post.create!(:post)
-    @user = Post.create!(:user)
+    @user = User.create!(email: 'email@example.com', password: 'a password')
+    @post = Post.create!(user: @user, topic: Topic.create!, body: 'a test body that is quite long', title: 'a test title')
+
     sign_in @user
   end
 
