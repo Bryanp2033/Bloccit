@@ -31,4 +31,5 @@ module ApplicationHelper
     base += "voted" if vote && vote.up_vote?
     base
 
+	end
 end

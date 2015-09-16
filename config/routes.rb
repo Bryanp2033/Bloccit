@@ -15,12 +15,13 @@ Rails.application.routes.draw do
    resources :posts, only: [:index] do
      resources :comments, only: [:create, :destroy]
      resources :favorites, only: [:create, :destroy]
+     resources :summary
 
      post '/up-vote' => 'votes#up_vote', as: :up_vote
      post '/down-vote' => 'votes#down_vote', as: :down_vote
-   end
+  end
 
-   resources :summary
+
 
   get 'about' => 'welcome#about'
 
