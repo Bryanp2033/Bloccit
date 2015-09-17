@@ -37,6 +37,14 @@ validates :title, length: { minimum: 5 }, presence: true
     update_attribute(:rank, new_rank)
    	end
 
+    def save_with_inital_vote
+      ActiveRecord::Base.transaction do 
+        @post = self
+        user.votes.create(:value: 1, post: @post)
+      end
+        
+      end
+
     private
 
    	def create_vote
