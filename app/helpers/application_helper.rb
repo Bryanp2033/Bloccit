@@ -32,3 +32,4 @@ module ApplicationHelper
     base
 
 end
+end
