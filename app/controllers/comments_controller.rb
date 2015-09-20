@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 		
 		@post = Post.find(params[:post_id])
 
-		@comment = current_user.comments.build(comments_params)
+		@comment = current_user.comments.new(comments_params)
 		@comment.post = @post
 		authorize @comment
 
@@ -28,11 +28,10 @@ class CommentsController < ApplicationController
       flash[:error] = "Comment couldn't be deleted. Try again."
     end
 
-      respond_to do |format|
-      	format.html
-      	format.js
-    
-  end
+	 redirect_to [@post.topic, @post]
+	end
+ 
+ 
 
 	private
 
@@ -40,3 +39,4 @@ class CommentsController < ApplicationController
 		params.require(:comment).permit(:body)
 	end
 end
+
