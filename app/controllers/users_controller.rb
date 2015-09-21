@@ -20,10 +20,12 @@ class UsersController < ApplicationController
 
 def index
   @users = User.top_rated.paginate(page: params[:page], per_page: 10)
+end
  
    private
  
    def user_params
      params.require(:user).permit(:name, :avatar, :email_favorites)
    end
- end
+ 
+end
