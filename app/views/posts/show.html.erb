@@ -2,7 +2,9 @@
 <div class="row">
 	<div class="col-md-8">
 		<%= render partial: 'votes/voter', locals: {post: @post} %>
+		<%= image_tag @post.avatar.url, class: 'media-object' %>
 		<h1><%=markdown_to_html @post.title %></h1>
+		
 		<small>
 			<%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
 			sumbitted <%= time_ago_in_words(@post.created_at)%> ago by <%= @post.user.name%>
@@ -24,6 +26,7 @@
 	</small>
 </div>
 <%= render partial: 'favorites/favorite', locals: { post: @post } %>
+
 	</div>
 </div>
 <br>
