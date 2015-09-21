@@ -30,5 +30,5 @@ module ApplicationHelper
     vote = current_user.voted(post)
     base += "voted" if vote && vote.up_vote?
     base
-
+end
 end
