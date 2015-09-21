@@ -4,8 +4,8 @@ class Topic < ActiveRecord::Base
     validates :description, presence:true
 
 
-scope :public, -> { where(:public => true)}
-scope :private, -> { where(:public => false)}
+scope :publicly_available, -> { where(:public => true)}
+scope :privately_avaiable, -> { where(:public => false)}
 scope :visible_to, -> (user) {user ? all : public}
 
 end
