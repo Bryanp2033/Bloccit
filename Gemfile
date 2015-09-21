@@ -14,6 +14,8 @@ gem 'redcarpet'
 
  gem 'carrierwave'
 
+ gem 'will_paginate'
+
  gem 'mini_magick'
 
  gem 'fog'
