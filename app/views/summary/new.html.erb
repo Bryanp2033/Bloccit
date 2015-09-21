@@ -4,7 +4,7 @@
    <div class="col-md-8">
      <%= form_for @summary, url: new_post_summary_path do |f| %>
        <div class="form-group">
-         <%= f.label :name, class: 'form-control', placeholder: "Enter summary" %>
+         <%= f.text_field :body, class: 'form-control', placeholder: "Enter summary" %>
          
        </div>
        </div>
