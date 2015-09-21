@@ -16,7 +16,7 @@ validates :title, length: { minimum: 5 }, presence: true
    validates :topic, presence: true
    validates :user, presence: true
 
-   after_save :create_vote 
+   after_create :create_vote 
 
    def up_votes
    	votes.where(value: 1).count
