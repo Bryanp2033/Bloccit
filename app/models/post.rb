@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	belongs_to :user
-	belongs_to :topic, dependent: :destroy
+	belongs_to :topic
 	has_many :votes, dependent: :destroy
    has_many :favorites, dependent: :destroy
    has_one :summary
@@ -40,7 +40,7 @@ validates :title, length: { minimum: 5 }, presence: true
     def save_with_inital_vote
       ActiveRecord::Base.transaction do 
         @post = self
-        user.votes.create(:value: 1, post: @post)
+        user.votes.create(value: 1, post: @post)
       end
         
       end
