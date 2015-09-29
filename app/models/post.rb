@@ -41,22 +41,20 @@ scope :order_by_reverse_created, -> { order('created_at DESC') }
    	end
 
     def markdown_title
-      markdown_to_html @post.title
+      post_render_as_markdown title
     end
 
     def markdown_body
-      markdown_to_html @post.body
+      post_render_as_markdown body
     end
 
     private
 
-    def post_render_as_markdown
+    def post_render_as_markdown(markdown)
       renderer = Redcarpet::Render::HTML.new
       extensions = {fenced_code_blocks: true}
       redcarpet = Redcarpet::Markdown.new(renderer, extensions)
       (redcarpet.render markdown).html_safe
-      markdown_to_html @post.title
-      markdown_to_html @post.body
     end
 
    end
