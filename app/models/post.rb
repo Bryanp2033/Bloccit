@@ -39,6 +39,26 @@ scope :order_by_reverse_created, -> { order('created_at DESC') }
    	def create_vote
    		user.votes.create(value: 1, post: self)
    	end
+
+    def markdown_title
+      markdown_to_html @post.title
+    end
+
+    def markdown_body
+      markdown_to_html @post.body
+    end
+
+    private
+
+    def post_render_as_markdown
+      renderer = Redcarpet::Render::HTML.new
+      extensions = {fenced_code_blocks: true}
+      redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+      (redcarpet.render markdown).html_safe
+      markdown_to_html @post.title
+      markdown_to_html @post.body
+    end
+
    end
 
 	 
