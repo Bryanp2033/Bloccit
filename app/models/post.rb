@@ -16,7 +16,7 @@ validates :title, length: { minimum: 5 }, presence: true
    validates :topic, presence: true
    validates :user, presence: true
 
-   after_save :create_vote 
+   #after_save :create_vote 
 
    def up_votes
    	votes.where(value: 1).count
@@ -37,13 +37,10 @@ validates :title, length: { minimum: 5 }, presence: true
     update_attribute(:rank, new_rank)
    	end
 
-    def save_with_inital_vote
-      ActiveRecord::Base.transaction do 
-        @post = self
-        user.votes.create(value: 1, post: @post)
-      end
-        
-      end
+    def save_with_initial_vote
+        return false unless save
+        user.votes.create(value: 1, post: self)
+    end
 
     private
 
