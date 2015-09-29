@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
 		@comment = current_user.comments.build(comments_params)
 		@comment.post = @post
+		@new_comment = Comment.new
 		authorize @comment
 
 		if @comment.save
@@ -13,7 +14,7 @@ class CommentsController < ApplicationController
 			flash[:error] = "Comment failed to save."
 		end
 
-	   redirect_to [@post.topic, @post]
+	  
 	end
 	
 
@@ -27,8 +28,6 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
     end
-
-      redirect_to [@post.topic, @post]
     
   end
 
