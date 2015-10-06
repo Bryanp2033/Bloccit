@@ -7,8 +7,8 @@ describe "Visiting profiles" do
 
   before do 
     @user = create(:user)
-    @topic = Topic.create(description: "A topic")
-    @post = create(:post, user: @user, topic: @topic)
+    @topic = Topic.create!(name: 'name_example',description: "A topic")
+    @post = create(:post , user: @user, topic: @topic)
     @comment = create(:comment, post: @post, user: @user)
   end
 
