@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 	def create
 		
 		@post = Post.find(params[:post_id])
-		@comments = @posts.comments
+		@comments = @post.comments
 		@comment = Comment.new(comments_params)
 		@comment.user = current_user
 		@comment.post = @post
@@ -16,29 +16,30 @@ class CommentsController < ApplicationController
 			flash[:error] = "Comment failed to save."
 		end
 
-	   respond_to do |format|
-	   	format.html
-	   	format.js
-	   end
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 	
 
-  def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    authorize @comment
+	def destroy
+		@post = Post.find(params[:post_id])
+		@comment = @post.comments.find(params[:id])
+		authorize @comment
 
-    if @comment.destroy
-      flash[:notice] = "Comment was removed."
-    else
-      flash[:error] = "Comment couldn't be deleted. Try again."
-    end
+		if @comment.destroy
+			flash[:notice] = "Comment was removed."
+		else
+			flash[:error] = "Comment couldn't be deleted. Try again."
+		end
 
-      respond_to do |format|
-      	format.html
-      	format.js
-    
-  end
+		respond_to do |format|
+			format.html
+			format.js
+			
+		end
+	end
 
 	private
 
