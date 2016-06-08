@@ -1,5 +1,6 @@
 class CommentPolicy < ApplicationPolicy
 
+	#policys for whom can create, and destroy comments
 	def create?
 		user.present? || user.admin?
 	end

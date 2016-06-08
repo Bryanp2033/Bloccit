@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+
+	#Basic Crud Actions
 	def create
 		
 		@post = Post.find(params[:post_id])
@@ -8,14 +10,18 @@ class CommentsController < ApplicationController
 		@comment.post = @post
 		@new_comment = Comment.new
 		
+		#policy action
 		authorize @comment
 
+
+		#comment saving to the db(database)
 		if @comment.save
 			flash[:notice] = "Comment saved successfully"
 		else
 			flash[:error] = "Comment failed to save."
 		end
 
+		# this if for ajax post 
 		respond_to do |format|
 			format.html
 			format.js
@@ -34,6 +40,7 @@ class CommentsController < ApplicationController
 			flash[:error] = "Comment couldn't be deleted. Try again."
 		end
 
+		#this is for ajax destroy
 		respond_to do |format|
 			format.html
 			format.js

@@ -2,61 +2,74 @@
 <html>
 <head>
   <title>Bloccit</title>
-   <meta name= "viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta name= "viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<div class="container">
-	<ul class='nav nav-tabs'> 
-        <li><%= link_to "Bloccit", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
-        <li><%= link_to "Faq", faq_path %></li>
-        <li><%= link_to "Topics", topics_path %></li>
-         <li><%= link_to "Popular", posts_path %></li> 
-        <li><%= link_to "Users", users_path %></li>
-       
+    <!-- Shows a nav tabs to show main links on the page -->
 
-         <div class="pull-right user-info">
-           <% if current_user %>
-           <%= image_tag(current_user.avatar.url) if current_user.avatar? %>
-              Hello <%= link_to (current_user.name || current_user.email), current_user %>!
-            <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
-              <span class="glyphicon glyphicon-user"></span>
-            <% end %> 
+    <!-- NAV TAB ONLY(top of the page) -->
+    <ul class='nav nav-tabs'> 
+      <li><%= link_to "Bloccit", root_path %></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to "Faq", faq_path %></li>
+      <li><%= link_to "Topics", topics_path %></li>
+      <li><%= link_to "Popular", posts_path %></li> 
+      <li><%= link_to "Users", users_path %></li>
 
-             <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
-              <span class="glyphicon glyphicon-log-out"></span>
-            <% end %>
 
-           <% else %>
-             <%= link_to "Sign In", new_user_session_path %> or
-             <%= link_to "Sign Up", new_user_registration_path %>
-           <% end %>
-         </div>
+      <div class="pull-right user-info">
 
-   </ul>
-   <% if flash[:notice] %>
+        <!-- If current user is present it will show their profile image, name or email, and edit link -->
+        <% if current_user %>
+        <%= image_tag(current_user.avatar.url) if current_user.avatar? %>
+        Hello <%= link_to (current_user.name || current_user.email), current_user %>!
+        <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+        <span class="glyphicon glyphicon-user"></span>
+        <% end %> 
+
+        <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+        <span class="glyphicon glyphicon-log-out"></span>
+        <% end %>
+
+        <!-- else if will display a sign in, and sign up buttons -->
+        <% else %>
+        <%= link_to "Sign In", new_user_session_path %> or
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %>
+      </div>
+
+    </ul>
+
+    <!-- if there a notice it will display this -->
+    <% if flash[:notice] %>
     <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= flash[:notice] %>
-         </div>
-       <% elsif flash[:error] %>
-         <div class="alert alert-danger">
-           <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= flash[:error] %>
-         </div>
-       <% elsif flash[:alert] %>
-         <div class="alert alert-warning">
-           <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= flash[:alert] %>
-         </div>
-       <% end %>
+      <%= flash[:notice] %>
+    </div>
 
-<%= yield %>
-	</div>
+    <!-- if there a error it will display this -->
+    <% elsif flash[:error] %>
+    <div class="alert alert-danger">
+     <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <%= flash[:error] %>
+
+     <!-- if there a alert it will display this -->
+   </div>
+   <% elsif flash[:alert] %>
+   <div class="alert alert-warning">
+     <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <%= flash[:alert] %>
+   </div>
+   <% end %>
+
+   <%= yield %>
+ </div>
 
 </body>
 </html>

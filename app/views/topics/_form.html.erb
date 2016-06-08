@@ -1,14 +1,19 @@
+
+<!-- form for creating a new topic -->
 <%= form_for topic do |f| %>
 <% if topic.errors.any? %>
 <div class="alert alert-danger">
 	<h4> There are <%= pluralize(topic.errors.count, "error") %> </h4>
 	<ul>
+		<!-- displays any errors -->
 		<% topic.errors.full_messages.each do |msg| %>
 		<li><%= msg %></li>
 		<% end %>
 	</ul>
 </div>
 <% end %>
+
+<!-- form for creating a new topic -->
 <%= form_group_tag(topic.errors[:name]) do %>
 <%= f.label :name %>
 <%= f.text_field :name, class: 'form-control', placeholder: "Enter topic name" %>

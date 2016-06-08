@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+
+  #Basic Crud Actions
   def index
   	@topics = Topic.all
   	authorize @topics
@@ -31,32 +33,32 @@ class TopicsController < ApplicationController
   	end
   end
 
-  	 def update
-     @topic = Topic.find(params[:id])
-     authorize @topic
-     if @topic.update_attributes(params.require(:topic).permit(:name, :description, :public))
-       redirect_to @topic
-     else
-       flash[:error] = "Error saving topic. Please try again."
-       render :edit
-     end
-	end
+  def update
+   @topic = Topic.find(params[:id])
+   authorize @topic
+   if @topic.update_attributes(params.require(:topic).permit(:name, :description, :public))
+     redirect_to @topic
+   else
+     flash[:error] = "Error saving topic. Please try again."
+     render :edit
+   end
+ end
 
-  def destroy
-    @topic = Topic.find(params[:id])
-    authorize @topic
-    if @topic.destroy
-      flash[:notice] = "'#{@topic.name}' was deleted successfully"
-      redirect_to topics_path
-    else
-      flash[:notice] = "Failed to delete topic"
-      render :show
-    end
+ def destroy
+  @topic = Topic.find(params[:id])
+  authorize @topic
+  if @topic.destroy
+    flash[:notice] = "'#{@topic.name}' was deleted successfully"
+    redirect_to topics_path
+  else
+    flash[:notice] = "Failed to delete topic"
+    render :show
   end
+end
 
-  private
+private
 
-  def topic_params
-    params.require(:topic).permit(:name, :description)
-  end
+def topic_params
+  params.require(:topic).permit(:name, :description)
+end
 end

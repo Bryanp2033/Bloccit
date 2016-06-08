@@ -1,6 +1,6 @@
 class TopicPolicy < ApplicationPolicy
 
-	
+	#topic policys for whom can see topics, create, update them
 	def index?
 		true
 	end

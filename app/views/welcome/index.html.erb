@@ -2,6 +2,8 @@
 <div class="jumbotron">
   <h1>Bloccit</h1>
   <p>Bloccit is a resource for sharing links with your friends!</p>
+
+  <!-- if the current user isn't there, these options will show-->
   <% if not current_user %>
   <p>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or

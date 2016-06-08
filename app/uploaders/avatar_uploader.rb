@@ -1,4 +1,5 @@
 ## encoding: utf-8
+#This is for image uploading
 
 class AvatarUploader < CarrierWave::Uploader::Base
 

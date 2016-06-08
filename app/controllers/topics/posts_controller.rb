@@ -1,6 +1,6 @@
 class Topics::PostsController < ApplicationController
 
-
+  #Basic Crud actions
   def index
   	@posts = Post.all
   end
@@ -59,18 +59,18 @@ class Topics::PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.new(post.params)
     authorize @post
-   if @post.update_attributes(params.require(:post).permit(:title, :body))
-       flash[:notice] = "Post was updated."
-       redirect_to [@topic, @post]
-     else
-       flash[:error] = "There was an error saving the post. Please try again."
-       render :edit
-     end
+    if @post.update_attributes(params.require(:post).permit(:title, :body))
+     flash[:notice] = "Post was updated."
+     redirect_to [@topic, @post]
+   else
+     flash[:error] = "There was an error saving the post. Please try again."
+     render :edit
+   end
+ end
+
+ private
+
+ def post_params
+  params.require(:post).permit(:title, :body)
 end
-
-     private
-
-     def post_params
-      params.require(:post).permit(:title, :body)
-    end
 end
