@@ -1,27 +1,33 @@
 class TopicsController < ApplicationController
 
   #Basic Crud Actions
+
+  # Shows a topics
   def index
   	@topics = Topic.all
   	authorize @topics
   end
 
-  def new
-  	@topic = Topic.new
-  	authorize @topic
-  end
-
+  # Shows a selected Topic
   def show
   	@topic = Topic.find(params[:id])
   	authorize @topic
     @posts = @topic.posts.includes(:user).includes(:comments).paginate(page: params[:page], per_page: 10)
   end
 
+  # Edits a topic
   def edit
   	@topic = Topic.find(params[:id])
   	authorize @topic
   end
 
+  # Creates a topic action
+  def new
+    @topic = Topic.new
+    authorize @topic
+  end
+
+  # Creates a new Topic
   def create
   	@topic = Topic.new(topic_params)
   	authorize @topic
@@ -33,9 +39,11 @@ class TopicsController < ApplicationController
   	end
   end
 
+  # Updates a selected topic
   def update
    @topic = Topic.find(params[:id])
    authorize @topic
+  # updates selected topic if it matches with the required params.
    if @topic.update_attributes(params.require(:topic).permit(:name, :description, :public))
      redirect_to @topic
    else
@@ -44,6 +52,7 @@ class TopicsController < ApplicationController
    end
  end
 
+ # deletes a selected topic
  def destroy
   @topic = Topic.find(params[:id])
   authorize @topic

@@ -5,8 +5,8 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :topic
 	has_many :votes, dependent: :destroy
- has_many :favorites, dependent: :destroy
- has_one :summary
+  has_many :favorites, dependent: :destroy
+  has_one :summary
 
 #arranges the collection of posts in descending order
  default_scope {order('created_at DESC')}

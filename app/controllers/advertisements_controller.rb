@@ -1,5 +1,6 @@
 class AdvertisementsController < ApplicationController
-	
+  # TODO future feature Topics
+  
   def index
   	@ads = Advertisement.all
   end
@@ -7,4 +8,5 @@ class AdvertisementsController < ApplicationController
   def show
   	@ad = Advertisement.find(params[:id])
   end
+
 end

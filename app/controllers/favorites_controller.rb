@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-  #
+  # creates a favorite action
   def create
    post = Post.find(params[:post_id])
    favorite = current_user.favorites.build(post: post)
@@ -16,7 +16,7 @@ class FavoritesController < ApplicationController
    end
  end
 
- #
+ # removes a favorite
  def destroy
    @post = Post.find(params[:post_id])
    favorite = current_user.favorites.find(params[:id])

@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150907184945) do
 
+  # Advertisment Table
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
     t.text     "copy"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
     t.datetime "updated_at", null: false
   end
 
+  # Answers Table
   create_table "answers", force: :cascade do |t|
     t.text     "body"
     t.integer  "question_id"
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
+  # Comments Table
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "post_id"
@@ -40,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
+  # Favorites Table
   create_table "favorites", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
   add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
+  # Posts Table
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -63,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
+  # Questions Table
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -71,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
     t.datetime "updated_at", null: false
   end
 
+  # Summaries
   create_table "summaries", force: :cascade do |t|
     t.integer  "post_id"
     t.datetime "created_at", null: false
@@ -79,6 +86,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
 
   add_index "summaries", ["post_id"], name: "index_summaries_on_post_id"
 
+  # Topics Table
   create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.boolean  "public",      default: true
@@ -87,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
     t.datetime "updated_at",                 null: false
   end
 
+  # Users Table
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "",   null: false
@@ -114,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150907184945) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+  # Votes Table
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"

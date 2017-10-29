@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
 
 	#Basic Crud Actions
+
+	# Finds a Post, the comment in its post
+	# and its's user assoicated with that comment
 	def create
-		
+
 		@post = Post.find(params[:post_id])
 		@comments = @post.comments
 		@comment = Comment.new(comments_params)
@@ -28,7 +31,7 @@ class CommentsController < ApplicationController
 		end
 	end
 	
-
+	# finds a post and then deletes the comment
 	def destroy
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])

@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Favorites Controller Test
 describe FavoritesController do
 
   include Devise::TestHelpers

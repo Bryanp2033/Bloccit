@@ -1,18 +1,18 @@
 
 <div class="row">
 	<div class="col-md-8">
-		<!-- renders the voter partial(the voting feature) -->
+		# <!-- renders the voter partial(the voting feature) -->
 		<%= render partial: 'votes/voter', locals: {post: @post} %>
 		<h1><%=markdown_to_html @post.title %></h1>
 		<small>
-			<!-- shows the user's profile image along with what how long agothe post was created -->
+			# <!-- shows the user's profile image along with what how long another post was created -->
 			<%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
 			sumbitted <%= time_ago_in_words(@post.created_at)%> ago by <%= @post.user.name%>
 		</small>
 		<p><%= markdown_to_html @post.body %></p>
 	</div>
 
-	<!-- if the policy allows it, the user will have access to edit and delete their post-->
+	# <!-- if the policy allows it, the user will have access to edit and delete their post-->
 	<div class="col-md-4">
 		<% if policy(@post).edit? %>
 		<%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
@@ -21,7 +21,7 @@
 		<%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
 		<% end %>
 		<div>
-			<!-- pulralizes the number of points -->
+			# <!-- pulralizes the number of points -->
 			<h3><%= pluralize(@post.points, 'point') %></h3>
 			<small>
 				<%= pluralize(@post.up_votes, 'up vote') %>,
@@ -29,7 +29,7 @@
 			</small>
 		</div>
 
-		<!-- render the favorite partial to show the favoriting button -->
+		# <!-- render the favorite partial to show the favoriting button -->
 		<%= render partial: 'favorites/favorite', locals: { post: @post } %>
 	</div>
 </div>

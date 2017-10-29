@@ -3,7 +3,7 @@
  <div class="col-md-8">
    <div class="media">
 
-    <!-- will display the user's profile image -->
+    # <!-- will display the user's profile image -->
     <% if @user.avatar? %>
     <div class="media-left">
      <%= image_tag @user.avatar.url, class: 'media-object' %>
@@ -11,7 +11,7 @@
    <% end %>
    <div class="media-body">
 
-    <!-- display the user's name along with the ammount of comment they posted-->
+    # <!-- display the user's name along with the ammount of comment they posted-->
     <h2 class="media-heading"><%= @user.name %></h2>
     <small>
      <%= pluralize(@user.posts.count, 'post') %>,
@@ -22,7 +22,7 @@
 </div>
 </div>
 
-<!-- a nav tabs to navigate between the user's posts and comments-->
+# <!-- a nav tabs to navigate between the user's posts and comments-->
 <div class="row">
  <div class="tabbable tabs-left">
    <ul class="nav nav-tabs">

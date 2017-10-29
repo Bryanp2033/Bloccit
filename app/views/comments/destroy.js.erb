@@ -1,11 +1,10 @@
-
-//If comment were be destroyed, the the comment will fadeout and be deleted,
-//while the comment count will change depending on the current number of total comments on the post#show
+# //If comment were be destroyed, the the comment will fadeout and be deleted,
+# //while the comment count will change depending on the current number of total comments on the post#show
 <% if @comment.destroyed? %>
    $('#comment-' +<%= @comment.id %>).fadeOut("slow");
    $('.js-comments-count').html("<%= pluralize(@comment.user.comments.count, 'comment') %>");
 
-   //Else the comment fails to be destroyed and calls out an error message to the page to display to the user
+  #  //Else the comment fails to be destroyed and calls out an error message to the page to display to the user
  <% else %>
    $('#comment-' +<%= @comment.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
  <% end %>

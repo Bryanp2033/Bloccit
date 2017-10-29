@@ -9,7 +9,6 @@ module ApplicationHelper
 		end
 	end
 
-	
 	#basic markdown procedure
 	def markdown_to_html(markdown)
 		renderer = Redcarpet::Render::HTML.new

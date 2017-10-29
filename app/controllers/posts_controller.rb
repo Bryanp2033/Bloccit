@@ -2,10 +2,13 @@ class PostsController < ApplicationController
 
 
 #Basic Crud Actions
+
+# shows posts that were created till 7 days ago
  def index
    @posts = Post.visible_to(current_user).where("posts.created_at > ?", 7.days.ago).paginate(page: params[:page], per_page: 10)
  end
 
+# shows a selected post
  def show
    @post = Post.find(params[:id])
    @topic = Topic.find(params[:topic_id])
@@ -14,12 +17,14 @@ class PostsController < ApplicationController
    authorize @post
  end
 
+#  Create post action
  def new
   @topic = Topic.find(params[:topic_id])
   @post = Post.new
   authorize @post
 end
 
+# Creates a post
 def create
   @topic = Topic.find(params[:topic_id])
   @post = Post.new(post_params)
@@ -35,6 +40,7 @@ def create
   end
 end
 
+# Edits a post 
 def edit
   @post = Post.find(params[:id])
   @topic = Topic.find(params[:id])
@@ -55,6 +61,7 @@ def destroy
   end
 end
 
+# Updates the topic and then updates the post
 def update
   @topic = Topic.find(params[:topic_id])
   @post = Post.new(post.params)
