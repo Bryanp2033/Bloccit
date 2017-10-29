@@ -1,4 +1,4 @@
-<!-- if there any error it will display it -->
+# <!-- if there any error it will display it -->
 <%= form_for [topic, post] do |f| %>
 <% if post.errors.any? %>
 <div class="alert alert-danger">
@@ -11,7 +11,7 @@
 </div>
 <% end %>
 
-<!-- The form for editing posts posts, all of this is under the form partial -->
+# <!-- The form for editing posts posts, all of this is under the form partial -->
 <%= form_group_tag(post.errors[:title]) do %>
 <%= f.label :title %>
 <%= f.text_field :title, class: 'form-control', placeholder: "Enter title" %>
