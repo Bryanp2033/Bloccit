@@ -40,17 +40,11 @@ def create
   end
 end
 
-# Edits a post 
-def edit
-  @post = Post.find(params[:id])
-  @topic = Topic.find(params[:id])
-  authorize @post
-end
 
 def destroy
   @topic = Topic.find(params[:topic_id])
-  @post = Post.find(params[:topic_id])
-  authorize @post
+  @post = Post.find(params[:id])
+  # authorize @post
 
   if @post.destroy
     flash[:notice] = "Post was deleted successfully"
@@ -61,10 +55,18 @@ def destroy
   end
 end
 
+# Edits a post 
+def edit
+  @topic = Topic.find(params[:topic_id])
+  @post = Post.find(params[:id])
+  authorize @post
+end
+
 # Updates the topic and then updates the post
 def update
   @topic = Topic.find(params[:topic_id])
-  @post = Post.new(post.params)
+  @post = Post.find(params[:id])
+
   authorize @post
   if @post.update_attributes(params.require(:post).permit(:title, :body))
    flash[:notice] = "Post was updated."

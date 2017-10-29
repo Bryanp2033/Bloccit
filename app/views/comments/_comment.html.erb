@@ -1,24 +1,24 @@
 
-# <!-- This is the comment partial and shows the comment entry -->
+ <!-- This is the comment partial and shows the comment entry -->
 <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
 <div class="media-left">
 
-	# <!-- shows the cuurent_user image -->
+	 <!-- shows the cuurent_user image -->
 	<%= image_tag(comment.user.avatar.small.url, class: "media-object") if comment.user.avatar? %>
 </div>
 <div class="media-body">
 	<small>
 
-		# <!-- shows the user who commented, and what time his/her comment was created -->
+		 <!-- shows the user who commented, and what time his/her comment was created -->
 		<%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
 
-		# <!-- if the policy allows it due the user's role, then they have the option to delete the method -->
+		 <!-- if the policy allows it due the user's role, then they have the option to delete the method -->
 		<% if policy(comment).destroy? %>
 		| <%= link_to "Delete", [comment.post, comment], method: :delete, remote: true %>
 		<% end %>
 	</small>
 
-	# <!-- displays the comment body -->
+	 <!-- displays the comment body -->
 	<p><%= comment.body %></p>
 </div>
 <% end %>

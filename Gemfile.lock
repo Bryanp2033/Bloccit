@@ -85,7 +85,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    eventmachine (1.0.8)
+    eventmachine (1.2.5)
     excon (0.45.4)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -375,5 +375,8 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate
 
+RUBY VERSION
+   ruby 2.2.1p85
+
 BUNDLED WITH
-   1.10.6
+   1.12.5
