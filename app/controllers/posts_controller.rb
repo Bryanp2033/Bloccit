@@ -3,10 +3,12 @@ class PostsController < ApplicationController
 
 #Basic Crud Actions
 
+
 # shows posts that were created till 7 days ago
  def index
    @posts = Post.visible_to(current_user).where("posts.created_at > ?", 7.days.ago).paginate(page: params[:page], per_page: 10)
  end
+
 
 # shows a selected post
  def show
@@ -75,6 +77,7 @@ def update
    flash[:error] = "There was an error saving the post. Please try again."
    render :edit
  end
+
 end
 
 

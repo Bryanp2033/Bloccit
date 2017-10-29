@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 
+
   #basic model realtionships
+
 	has_many :comments, dependent: :destroy
 	belongs_to :user
 	belongs_to :topic
@@ -26,6 +28,11 @@ class Post < ActiveRecord::Base
  validates :user, presence: true
 #after_save :create_vote (pry code)
 
+
+   validates :title, length: { minimum: 5 }, presence: true
+   validates :body, length: { minimum: 20 }, presence: true
+   validates :topic, presence: true
+   validates :user, presence: true
 
   #keeps track of the post's up_votes, down_votes, and total sum of votes
    def up_votes
