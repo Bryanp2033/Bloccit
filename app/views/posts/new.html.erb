@@ -1,5 +1,6 @@
 <h1> New Post </h1>
 
+# <!-- html formating for form#new while rendering the form partial -->
 <div class = "row">
 	<div class="col-md-4">
 		<p>Guildlines for posts</p>
@@ -7,9 +8,9 @@
 			<li>Makes sure it rhymes.</li>
 			<li>Don't use the letter "A".</l>
 				<li>The incessant use of hashtags will get you banned.</li>
-		</ul>
+			</ul>
 		</div>
 		<div class="col-md-8">
-		<%= render partial: 'form', locals: {topic: @topic, post: @post} %>
+			<%= render partial: 'form', locals: {topic: @topic, post: @post} %>
 		</div>
 	</div>

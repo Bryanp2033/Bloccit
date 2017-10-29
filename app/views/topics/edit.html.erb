@@ -1,5 +1,6 @@
 <h1> Edit Topic</h1>
 
+# <!-- the html format for the topics#edit page -->
 <div class="row">
 	<div class="col-md-4">
 		<p> Guidelines for topics:</p>
@@ -7,9 +8,11 @@
 			<li> Make sure the topic is appropriate.</li>
 			<li> Never insult sogs.</li>
 			<li> Smile when you type.</li>
-				</ul>
-			</div>
-			<div class="col-md-8">
-			<%= render partial: 'form', locals: { topic: @topic, post: @post} %>
-   </div>
- </div>
+		</ul>
+	</div>
+
+	# <!-- render the form partial found in the topics folder -->
+	<div class="col-md-8">
+		<%= render partial: 'form', locals: { topic: @topic, post: @post} %>
+	</div>
+</div>

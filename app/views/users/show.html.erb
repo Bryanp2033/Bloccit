@@ -1,0 +1,41 @@
+
+<div class="row">
+ <div class="col-md-8">
+   <div class="media">
+
+    # <!-- will display the user's profile image -->
+    <% if @user.avatar? %>
+    <div class="media-left">
+     <%= image_tag @user.avatar.url, class: 'media-object' %>
+   </div>
+   <% end %>
+   <div class="media-body">
+
+    # <!-- display the user's name along with the ammount of comment they posted-->
+    <h2 class="media-heading"><%= @user.name %></h2>
+    <small>
+     <%= pluralize(@user.posts.count, 'post') %>,
+     <div class='js-comments-count'><%= pluralize(@user.comments.count, 'comment') %></div>
+   </small>
+ </div>
+</div>
+</div>
+</div>
+
+# <!-- a nav tabs to navigate between the user's posts and comments-->
+<div class="row">
+ <div class="tabbable tabs-left">
+   <ul class="nav nav-tabs">
+     <li class="active"><a href="#posts" data-toggle="tab">Posts</a></li>
+     <li><a href="#comments" data-toggle="tab">Comments</a></li>
+   </ul>
+   <div class="tab-content">
+     <div class="tab-pane active" id="posts">
+       <%= render @posts %>
+     </div>
+     <div class="tab-pane" id="comments">
+       <%= render @comments %>
+     </div>
+   </div>
+ </div>
+</div>

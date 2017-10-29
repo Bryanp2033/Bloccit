@@ -1,4 +1,6 @@
 class ApplicationPolicy
+
+  #only reads the user, and the record
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -6,6 +8,8 @@ class ApplicationPolicy
     @record = record
   end
 
+  #policys
+  
   def index?
     false
   end
@@ -24,18 +28,18 @@ class ApplicationPolicy
 
   def update?
    user.present? && (record.user == user || user.admin?)
-  end
+ end
 
-  def edit?
-    update?
-  end
+ def edit?
+  update?
+end
 
-  def destroy?
-    update?
-  end
+def destroy?
+  update?
+end
 
-  def scope
-   record.class
-  end
-    
+def scope
+ record.class
+end
+
 end

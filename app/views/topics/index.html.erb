@@ -1,5 +1,9 @@
 <h1>Topics</h1>
 
+<div class="col-md-4">
+
+# <!-- if the policy allows it, it will let the user the option to create a new topic -->
+</div>
 <div class="row">
 	<div class="col-md-8">
 		<% @topics.each do |topic| %>
@@ -15,9 +19,5 @@
 		</div>
 		<% end %>
 	</div>
-	<div class="col-md-4">
-		<% if policy(Topic.new).create? %>
-		  <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-    <% end %>
-  </div>
+</div>
 </div>

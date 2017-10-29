@@ -1,16 +1,30 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
+
+
+gem 'puma', group: :production
+gem 'thin', group: :development
+
+gem 'factory_girl_rails', '~> 4.0'
+
+gem 'will_paginate'
+
+gem 'newrelic_rpm'
 
 gem 'rails', '4.2.1'
 
 gem 'redcarpet'
 
- gem 'devise'
+gem 'devise'
 
- gem 'carrierwave'
+gem 'carrierwave'
 
- gem 'mini_magick'
+gem 'mini_magick'
 
- gem 'fog'
+gem 'fog'
+
+
+
 group :production do
    gem 'pg'
    gem 'rails_12factor'
@@ -31,22 +45,25 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 
 gem 'faker'
+
 gem 'turbolinks'
 
 gem 'jbuilder', '~> 2.0'
 
- gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 
- gem 'binding_of_caller'
+gem 'binding_of_caller'
 
- gem 'better_errors'
+gem 'better_errors'
+
+gem 'pundit'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 group :development, :test do
 
-
+  gem 'capybara'
  
   gem 'byebug'
 
@@ -60,7 +77,6 @@ group :development, :test do
 
   gem 'figaro', '1.0'
 
-  gem 'pundit'
 
  gem 'rspec-rails', '~> 3.0'
 end

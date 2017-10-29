@@ -1,5 +1,6 @@
 require 'rails_helper'
  
+# Votes Controller
  describe VotesController do
  
    include TestFactories

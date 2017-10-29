@@ -1,3 +1,5 @@
+
+#automatic email to the user anytime someone posts a comment on their page
 class FavoriteMailer < ApplicationMailer
 	default from: "bryanporras2033@gmail.com"
 

@@ -1,17 +1,12 @@
-<h1> All Posts </h1>
-<% if policy(Post.new).create? %>
-<%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
-<% end %>
-<% @posts.each do |post| %>
-	 <div class="media">
-	 	<div class="media-body">
-	 		<h4 class="media-heading">
-	 			<%= link_to (markdown_to_html post.title), post %>
-	 		</h4>
-	 		<small>
-	 			sumbitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
-	 			<%= post.comments.count %> Comments
-	 		</small>
-	 	</div>
-	 </div>
-	<% end %>
+# <!-- displays the post#index html while render the post partial -->
+<div class="row">
+	<div class="col-md-8">
+		<h1>Popular</h1>
+		<p class="lead">Active posts this week</p>
+		<%= render @posts %>
+		<%= will_paginate @post %>
+	</div>
+	<div class="col-md-4">
+	</div>
+</div>
+
