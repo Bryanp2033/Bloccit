@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
 		@new_comment = Comment.new
 		
 		#policy action
+
 		authorize @comment
 
 
@@ -24,11 +25,13 @@ class CommentsController < ApplicationController
 			flash[:error] = "Comment failed to save."
 		end
 
+
 		# this if for ajax post 
 		respond_to do |format|
 			format.html
 			format.js
 		end
+	  
 	end
 	
 	# finds a post and then deletes the comment
@@ -50,6 +53,19 @@ class CommentsController < ApplicationController
 			
 		end
 	end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    authorize @comment
+
+    if @comment.destroy
+      flash[:notice] = "Comment was removed."
+    else
+      flash[:error] = "Comment couldn't be deleted. Try again."
+    end
+    
+  end
 
 	private
 
