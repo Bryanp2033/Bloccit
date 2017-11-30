@@ -2,6 +2,8 @@
 
 Web App allowing users to create and share popular topics and articles
 
+Project Link: https://bloccit-heroku.herokuapp.com/
+
 # Concept
 
 This project is an inspiration Reddit and that what I was trying to achieve, it was my first major coding project ever and it centered around creating a site where users can create topics and creates posts to those said topics.
